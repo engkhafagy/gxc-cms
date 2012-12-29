@@ -54,7 +54,11 @@ class UserCreateWidget extends CWidget
                         $new_user->role_id=$model->role_id;                        
                         if($new_user->save()){
                             //sayyed: update table [gxc_auth_assignment] Role:userid
-                            $role = Roles::model()->find(array('conditions' => 'id='.$model,));
+                            $role = Roles::model()->find(array('condition' => 'id='.$new_user->role_id));
+                            $auth_assignment = new AuthAssignment;
+                            $auth_assignment->itemname = $role->title;
+                            $auth_assignment->userid = $new_user->user_id;
+                            $auth_assignment->save();
                             user()->setFlash('success',t('Create new User Successfully!'));                                        
                         }
                         

@@ -10,7 +10,7 @@
 $cms_version='1.0';
 
 //You need to specify the path to CORE FOLDER CORRECTLY
-define('CORE_FOLDER',dirname(dirname(dirname(__FILE__))).DIRECTORY_SEPARATOR.'gxc-cms'.DIRECTORY_SEPARATOR.'core');
+define('CORE_FOLDER',dirname(dirname(dirname(__FILE__))).DIRECTORY_SEPARATOR.'GXC'.DIRECTORY_SEPARATOR.'core');
 
 
 define('COMMON_FOLDER',dirname(dirname(__FILE__)).DIRECTORY_SEPARATOR.'common');

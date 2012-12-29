@@ -33,7 +33,6 @@ class SiteController extends FeController
 	            if($slug==''){
 	                $slug=Yii::app()->settings->get('general', 'homepage');
 	            }
-                print_r(Yii::app()->user->name);
 	            parent::renderPageSlug($slug);  	           
 		}
 	

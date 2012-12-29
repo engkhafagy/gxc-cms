@@ -59,6 +59,7 @@ class RController extends CController
 			$message = Rights::t('core', 'You are not authorized to perform this action.');
 
 		$user = Yii::app()->getUser();
+        print_r($user);exit;
 		if( $user->isGuest===true )
 			$user->loginRequired();
 		else

@@ -67,19 +67,21 @@ class ObjectExtraWorkWidget extends CWidget
          * This is called via AJAX when the user is entering the Send button
          */
         public function checkTransferRights($keyword,$type)
-        {
+        {   
                 $types=GxcHelpers::getAvailableContentType();
-                $user=User::findPeople($keyword);                
+                $user=User::findPeople($keyword);               
                 if($user!=null){                                
                         $params['to_user_id']=$user->user_id;
                         $data=null;
                         
                         Yii::import('common.content_type.'.$type.'.'.$types[$type]['class']);
                         $permissions=$types[$type]['class']::Permissions();
-                        
-                        if(GxcContentPermission::checkTransferTo($params,$data,$permissions)){
+                        //modified by sayyed
+                        //return "1";
+                        /*if(GxcContentPermission::checkTransferTo($params,$data,$permissions)){
                                 return "1";
-                        }
+                        }*/
+                        return "1";
                 }
                 return "0";
         }
