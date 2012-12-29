@@ -1,0 +1,20 @@
+a:2:{i:0;a:2:{i:0;s:648:"      <div id="navigation" class="jqueryslidemenu">
+            <ul class="menu_level_1">      	
+	        		
+	          		<li><a href="#" >New CMS</a>
+	          								<ul class="menu_level_2">
+																<li><a href="post?id=10&slug=egyptian-team">Introduction</a>										
+																			</li>
+																<li><a href="http://localhost/gxc-cms/frontend/index.php/new-page">Benefits</a>										
+																			</li>
+													</ul>
+							
+					</li>
+	          		
+	          		<li><a href="site/logout" >Logout</a>
+	          			
+					</li>
+	          		        </ul>
+      <br style="clear: left">
+      </div>      
+   ";i:1;N;}i:1;N;}
