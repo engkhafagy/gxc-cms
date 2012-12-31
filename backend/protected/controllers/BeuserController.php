@@ -92,11 +92,12 @@ class BeuserController extends BeController{
         
         /**
 	 * The function is to Delete a User
-	 * 
+	 * updated by sayyed to delete corresponding record in gxc_auth_assignment table
 	 */
 	public function actionDelete($id)
-	{                            
+	{                           
             GxcHelpers::deleteModel('User', $id);
+            AuthAssignment::model()->deleteAll("userid = $id");
 	}
                     
 }

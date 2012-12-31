@@ -40,15 +40,22 @@ class UserUpdateWidget extends CWidget
             }    
             // collect user input data
             if(isset($_POST['User']))
-            {
+            {       
                     $model->attributes=$_POST['User'];
                     if($model->password!=$old_pass){
 			$model->password=$model->hashPassword($model->password, USER_SALT);
                     }
                     $model->scenario='update';
 		    if($model->save()){
-                        user()->setFlash('success',t('Updated Successfully!'));                                        
-                    }			
+    		     //sayyed: update table [gxc_auth_assignment] Role:userid
+    		     AuthAssignment::model()->deleteAll("userid = ".$model->user_id);
+                 $role = Roles::model()->find(array('condition' => 'id='.$model->role_id));
+    		     $auth_assignment = new AuthAssignment;
+                 $auth_assignment->itemname = $role->title;
+                 $auth_assignment->userid = $model->user_id;
+                 $auth_assignment->save();
+                 user()->setFlash('success',t('Updated Successfully!'));                                        
+            }			
                    
             }
             
