@@ -48,27 +48,27 @@ class GxcContentPermission
     
     public static function getContentStatus($params=null,$data=null,$perm)
     {
-        $roles=Rights::getAssignedRoles(user()->id,true);               
+        $roles=Rights::getAssignedRoles(user()->id,true);             
         $allow_transfer_list=array();
         $arr_result=array();
         foreach($roles as $role){
             if(array_key_exists (trim($role->name) , $perm)){
                 $object_status=$perm[trim($role->name)]['allowedObjectStatus'];
-                $transfer_list=$perm[trim($role->name)]['allowedTransferto'];
+                //$transfer_list=$perm[trim($role->name)]['allowedTransferto'];
                 foreach($object_status as $key=>$obj){                                      
                     if(GxcContentPermission::execBizRules($obj['condition'],$params,$data)){
                            $arr_result[]=$key;
                     }
                 }
-                foreach($transfer_list as $key_list=>$obj_list){
+                //@@@ Modified by Sayyed
+                /*foreach($transfer_list as $key_list=>$obj_list){
                     
                     if(GxcContentPermission::execBizRules($obj_list['condition'],$params,$data)){ 
                            $allow_transfer_list[$key_list]=$key_list;
                     }
-                }
+                }*/
             }
         }
-        
         $newResult=array();
         if(count($arr_result)>0){
             $arr_result=array_unique($arr_result);
@@ -79,15 +79,15 @@ class GxcContentPermission
             }
             
           
-            //Check if it has key Status Pending
-            if(array_key_exists (ConstantDefine::OBJECT_STATUS_PENDING , $newResult)){
+            //Check if it has key Status Pending @@@ Modified by Sayyed
+            /*if(array_key_exists (ConstantDefine::OBJECT_STATUS_PENDING , $newResult)){
                 //Remove the key which has status pending
                 unset($newResult[ConstantDefine::OBJECT_STATUS_PENDING]);
                 //Get the list of roles that can be transfered to
                 foreach($transfer_list as $key_trans=>$obj_trans){
                      $newResult[$key_trans]=$key_trans;
                 }
-            }
+            }*/
         }
     
         

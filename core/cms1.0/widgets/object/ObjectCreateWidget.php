@@ -102,7 +102,6 @@ class ObjectCreateWidget extends CWidget
 						
 						$content_status=GxcContentPermission::getContentStatus($param_content_check,$data_content_check,
                         $typeClassObj->Permissions());
-                        
                         $model=new $types[$type]['class'];
                         // Uncomment the following line if AJAX validation is needed
                         // $this->performAjaxValidation($model);

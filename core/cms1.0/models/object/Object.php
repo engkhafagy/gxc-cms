@@ -664,16 +664,18 @@ class Object extends CActiveRecord
                                            ConstantDefine::OBJECT_STATUS_PUBLISHED=>array('condition'=>''),
                                            ConstantDefine::OBJECT_STATUS_HIDDEN=>array('condition'=>''),
                                            ),
-                    'allowedTransferto'=>array(
+                        //@@@ Modified by Sayyed
+                    /*'allowedTransferto'=>array(
                                            ConstantDefine::USER_GROUP_EDITOR=>array('condition'=>''),
                                            ConstantDefine::USER_GROUP_REPORTER=>array('condition'=>''),                                           
-                                           ), 
+                                           ), */
                     
                     'allowedToCreateContent'=>true,
                     
                     'allowedToUpdateContent'=>''
                 ),
-                ConstantDefine::USER_GROUP_EDITOR=>array(
+                //@@@ Modified by Sayyed
+                /*ConstantDefine::USER_GROUP_EDITOR=>array(
                     'allowedObjectStatus'=>array(
                                            ConstantDefine::OBJECT_STATUS_DRAFT=>array('condition'=>'return $params["new_content"]==true;'),
                                            ConstantDefine::OBJECT_STATUS_PENDING=>array('condition'=>''),
@@ -725,7 +727,7 @@ class Object extends CActiveRecord
                                         ||(($params["content_status"]==ConstantDefine::OBJECT_STATUS_PENDING)&&($params["trans_to"]==user()->id))
                                         ||(($params["content_status"]==ConstantDefine::OBJECT_STATUS_PENDING)&&($params["trans_type"]==ConstantDefine::TRANS_ROLE)&&(array_key_exists($params["trans_note"],Rights::getAssignedRoles(user()->id,true))))
                                         )) ;'
-                       )  
+                       ) */ 
             );
         }
         
